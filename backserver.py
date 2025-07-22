@@ -43,4 +43,5 @@ def status():
     return {"status": "ready"}
 
 if __name__ == "__main__":
-    uvicorn.run("backserver:app", host="0.0.0.0", port=7860, reload=True)
+    port = int(os.environ.get("SERVER_PORT", 7860))
+    uvicorn.run("backserver:app", host="0.0.0.0", port=port, reload=True)
